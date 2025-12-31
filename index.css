@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Dancing+Script:wght@600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 340 100% 97%;
+    --foreground: 340 40% 25%;
+
+    --card: 340 100% 99%;
+    --card-foreground: 340 40% 25%;
+
+    --popover: 340 100% 99%;
+    --popover-foreground: 340 40% 25%;
+
+    --primary: 340 82% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 280 60% 85%;
+    --secondary-foreground: 280 40% 30%;
+
+    --muted: 340 30% 92%;
+    --muted-foreground: 340 20% 50%;
+
+    --accent: 20 90% 80%;
+    --accent-foreground: 20 60% 30%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 340 40% 88%;
+    --input: 340 40% 88%;
+    --ring: 340 82% 65%;
+
+    --radius: 1rem;
+
+    /* Custom romantic colors */
+    --rose: 340 82% 65%;
+    --rose-light: 340 100% 90%;
+    --lavender: 280 60% 75%;
+    --lavender-light: 280 80% 92%;
+    --peach: 20 90% 80%;
+    --peach-light: 20 100% 92%;
+    --cream: 40 100% 97%;
+
+    /* Gradients */
+    --gradient-romantic: linear-gradient(135deg, hsl(340, 100%, 95%) 0%, hsl(280, 80%, 92%) 50%, hsl(20, 100%, 92%) 100%);
+    --gradient-button: linear-gradient(135deg, hsl(340, 82%, 65%) 0%, hsl(340, 82%, 55%) 100%);
+    --gradient-button-hover: linear-gradient(135deg, hsl(340, 82%, 60%) 0%, hsl(340, 82%, 50%) 100%);
+    --gradient-heart: linear-gradient(135deg, hsl(340, 82%, 70%) 0%, hsl(340, 82%, 55%) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -5px hsl(340 82% 65% / 0.3);
+    --shadow-glow: 0 0 30px hsl(340 82% 65% / 0.4);
+    --shadow-card: 0 10px 40px -10px hsl(340 30% 50% / 0.15);
+
+    /* Font families */
+    --font-display: 'Dancing Script', cursive;
+    --font-body: 'Quicksand', sans-serif;
+  }
+
+  .dark {
+    --background: 340 30% 10%;
+    --foreground: 340 20% 95%;
+    --card: 340 30% 12%;
+    --card-foreground: 340 20% 95%;
+    --popover: 340 30% 12%;
+    --popover-foreground: 340 20% 95%;
+    --primary: 340 82% 65%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 280 40% 25%;
+    --secondary-foreground: 280 60% 90%;
+    --muted: 340 20% 20%;
+    --muted-foreground: 340 20% 70%;
+    --accent: 20 60% 30%;
+    --accent-foreground: 20 90% 90%;
+    --border: 340 20% 20%;
+    --input: 340 20% 20%;
+    --ring: 340 82% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    font-family: var(--font-body);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .gradient-romantic {
+    background: var(--gradient-romantic);
+  }
+
+  .gradient-button {
+    background: var(--gradient-button);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+}
+
+/* Heart floating animation */
+@keyframes float-heart {
+  0% {
+    transform: translateY(100vh) rotate(0deg) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(90vh) rotate(10deg) scale(1);
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-10vh) rotate(360deg) scale(0.5);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-heart {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes bounce-soft {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes heart-burst {
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5) rotate(180deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes gift-shake {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-5deg);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+}
+
+@keyframes countdown-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Animation utilities */
+.animate-float-heart {
+  animation: float-heart 8s ease-in-out infinite;
+}
+
+.animate-pulse-heart {
+  animation: pulse-heart 1.5s ease-in-out infinite;
+}
+
+.animate-bounce-soft {
+  animation: bounce-soft 2s ease-in-out infinite;
+}
+
+.animate-wiggle {
+  animation: wiggle 0.5s ease-in-out infinite;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.5s ease-out forwards;
+}
+
+.animate-heart-burst {
+  animation: heart-burst 0.8s ease-out forwards;
+}
+
+.animate-gift-shake {
+  animation: gift-shake 0.5s ease-in-out infinite;
+}
+
+.animate-countdown-pulse {
+  animation: countdown-pulse 1s ease-in-out infinite;
+}
+
+/* Stagger animations */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
